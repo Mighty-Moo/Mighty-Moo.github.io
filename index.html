@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Password</title>
+  <style>
+    html,
+    body {
+      background-color: #111;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #box {
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <h2>Enter Key</h2>
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="check()">Submit</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <script>
+    const PASSWORD = "simplePass"; // Change this to your desired key
+
+    function check() {
+      const entered = document.getElementById("pass").value;
+      if (entered === PASSWORD) {
+        // Redirect to the real content
+        localStorage.setItem("access_granted", "true");
+        window.location.href = "project.html";
+      } else {
+        document.getElementById("error").textContent = "Incorrect password.";
+      }
+    }
+
+  </script>
+</body>
+
+</html>
